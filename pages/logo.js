@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
+import userIcon from '../assets/user-icon.png';
+
 const Logo = () => {
   return (
     <View style={styles.container}>
