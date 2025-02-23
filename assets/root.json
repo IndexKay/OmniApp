@@ -1,0 +1,20 @@
+{
+    "style": {
+        "DarkMode": {
+            "backgroundColor": "#121212",
+            "secondaryColor": "#1C1B1F",
+            "mainColor": "#5CDFE5",
+            "accentColor": "#424343",
+            "textColor": "#E5E3EA"
+        },
+        "LightMode": {
+            "backgroundColor": "#121212",
+            "secondaryColor": "#1C1B1F",
+            "mainColor": "#5CDFE5",
+            "accentColor": "#424343",
+            "textColor": "#E5E3EA"
+        }
+    },
+
+    "Theme": "DarkMode"
+}

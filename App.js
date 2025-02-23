@@ -4,13 +4,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
 import HomeMainScreen from './screens/home';
-import ChatScreen from './screens/chat';
+import ChatScreen from './screens/AI/chat';
 import SettingsScreen from './screens/settings';
 import HomeIcon from './assets/navbar/home.svg';
 import ChatIcon from './assets/navbar/chat.svg';
 import SettingsIcon from './assets/navbar/settings.svg';
+
+import app from './app.json'
+
+import theme from './theme';
+const activeTheme = theme();
 
 //
 // Welcome Screen - shows an image that must be tapped to “unlock” the nav
@@ -30,7 +34,7 @@ function WelcomeScreen({ navigation, setWelcomeComplete }) {
           style={styles.image}
         />
       </TouchableOpacity>
-      <Text style={styles.version}>v 0.01</Text>
+      <Text style={styles.version}>v{app.expo.version}</Text>
     </View>
   );
 }
@@ -58,6 +62,7 @@ function HomeStackScreen({ setWelcomeComplete }) {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  
   const [welcomeComplete, setWelcomeComplete] = useState(false);
 
   return (
@@ -99,11 +104,11 @@ export default function App() {
             );
           },
           // While locked, force both active and inactive to a soild color
-          tabBarActiveTintColor: welcomeComplete ? 'white' : '#5CDFE5',
-          tabBarInactiveTintColor: welcomeComplete ? 'grey' : '#5CDFE5',
+          tabBarActiveTintColor: welcomeComplete ? activeTheme.textColor : activeTheme.mainColor,
+          tabBarInactiveTintColor: welcomeComplete ? activeTheme.accentColor : activeTheme.mainColor,
           tabBarStyle: { 
-            backgroundColor: '#121212', 
-            borderColor: '#121212', 
+            backgroundColor: activeTheme.backgroundColor, 
+            borderColor: activeTheme.backgroundColor, 
             fontSize: 11, 
             fontWeight: "600", 
             paddingVertical: 8,
@@ -129,7 +134,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#121212',
+    backgroundColor: activeTheme.backgroundColor,
     gap: 19,
   },
   image: {
@@ -138,7 +143,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   version: {
-    color: "#424343",
+    color: activeTheme.accentColor,
     fontSize: 17,
     fontWeight: "600",
     lineHeight: 22,

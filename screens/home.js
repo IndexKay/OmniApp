@@ -16,14 +16,16 @@ import CookIcon from '../assets/home/cook';
 import PasswordsIcon from '../assets/home/passwords';
 import NotesIcon from '../assets/home/notes';
 
+import theme from '../theme';
+const activeTheme = theme();
 
 export default function HomeMainScreen() {
     const iconSize = 24;
 
     // Active = #5CDFE5 - Disconnected = #E5675C
-    const [aiStatus, setAiStatus] = useState('#5CDFE5')
-    const [apiStatus, setApiStatus] = useState('#5CDFE5')
-    const [databaseStatus, setDatabaseStatus] = useState('#5CDFE5')
+    const [aiStatus, setAiStatus] = useState(activeTheme.mainColor)
+    const [apiStatus, setApiStatus] = useState(activeTheme.mainColor)
+    const [databaseStatus, setDatabaseStatus] = useState(activeTheme.mainColor)
 
     return (
       <View style={styles.center}>
@@ -109,12 +111,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#121212',
+    backgroundColor: activeTheme.backgroundColor,
     gap: 36,
   },
 
   text: {
-    color: 'white',
+    color: activeTheme.textColor,
     fontSize: 18,
   },
 
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
 
   tab1: {
     borderRadius: 16,
-    backgroundColor: "#1c1b1f",
+    backgroundColor: activeTheme.secondaryColor,
     padding: 16,
     gap: 4,
     flex: 1
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "600",
     fontFamily: "Inter-SemiBold",
-    color: "#5cdfe5",
+    color: activeTheme.mainColor,
     textAlign: "left"
   },
 });
