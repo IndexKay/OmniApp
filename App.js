@@ -106,7 +106,8 @@ export default function App() {
             borderColor: '#121212', 
             fontSize: 11, 
             fontWeight: "600", 
-            paddingVertical: 8
+            paddingVertical: 8,
+            paddingHorizontal: 30
           },
           headerShown: false,
         })}
