@@ -4,7 +4,6 @@ export default function theme(){
     const Darkmode = root.style.DarkMode;
     const Lightmode = root.style.LightMode;
     let activeTheme
-    console.log(root.Theme)
 
     if(root.Theme == "DarkMode"){
         // Current Theme being used 
